@@ -22,17 +22,16 @@ This project analyzes the effectiveness of two landing page variants (control vs
 
 ## Repository Structure
 ```bash
-Basic-ab-testing-project/
-├── archive/
-│   ├── control_group.csv
-│   └── test_group.csv
+AB testing project 1/     # <-- Corrected name
+├── control_group.csv     # <-- Raw data likely in root
+├── test_group.csv        # <-- Raw data likely in root
 ├── data/
-│   └── ab_test_cleaned.csv       # cleaned & merged output
-├── notebooks/
-│   └── A_B_Testing_Landing_Page_Conversion.ipynb
-├── tableau/
-│   └── landing_page_dashboard.twbx   # interactive funnel dashboard
-└── README.md
+│   └── ab_test_cleaned.csv # <-- Correct save location
+├── venv/                   # <-- Your virtual environment
+├── .gitignore              # <-- Should exist
+├── ab_test_analysis.ipynb  # <-- Correct notebook name, in root
+├── README.md               # <-- This file
+└── requirements.txt        # <-- Should exist
 
 ## Methodology
 1.  **Data Cleaning & Preparation:** Loaded the data, checked for missing values, ensured correct data types.
@@ -44,12 +43,12 @@ Basic-ab-testing-project/
 4.  **Conclusion:** Interpreted the p-value and confidence interval based on a pre-defined significance level (e.g., $\alpha = 0.05$) to make a decision on statistical significance.
 
 ## Key Findings
-* **Control conversion rate:** 12.30%  
-* **Treatment conversion rate:** 14.80%  
-* **Z‑statistic:** 2.20  
-* **P‑value:** 0.0283  
-* At α = 0.05, the increase in conversion for version B is **statistically significant**.  
-* **Recommendation:** Roll out version B, as it demonstrated a significant uplift.
+* **Control Group Conversion Rate (Purchases/Clicks):** 9.83% [cite: 1]
+* **Treatment Group Conversion Rate (Purchases/Clicks):** 8.64% [cite: 1]
+* **Calculated Z‑statistic:** 11.839 [cite: 1]
+* **Calculated P‑value:** 0.0000 [cite: 1]
+* **Conclusion:** Since the p-value (0.0000) is less than the significance level ($\alpha = 0.05$), the difference in conversion rates is **statistically significant**[cite: 1]. The results indicate the Control group performed significantly better than the Treatment group[cite: 1].
+* **Recommendation:** **Do NOT roll out** the new landing page (version B). Continue using the original (Control) landing page design[cite: 1].
 
 ## Technologies Used
 * Python
