@@ -1,17 +1,38 @@
-# A/B Testing Analysis for [Specific Feature/Website Change]
+# 📊 A/B Testing: Landing Page Optimization
 
-## Project Overview
-This project analyzes the results of an A/B test designed to evaluate the impact of [briefly describe the change tested, e.g., 'a new call-to-action button'] on [mention the key metric, e.g., 'user conversion rate']. The analysis aims to determine if the change resulted in a statistically significant improvement.
+## Table of Contents
+1.  [Project Summary](#project-summary)
+2.  [Dataset](#dataset)
+3.  [Repository Structure](#repository-structure)
+4.  [Methodology](#methodology)
+5.  [Key Findings](#key-findings)
+6.  [Technologies Used](#technologies-used)
+7.  [Setup and Usage](#setup-and-usage)
+---
 
-## Goals
-* Determine if the new version (Variant B) performed significantly different from the original version (Variant A) based on [the key metric].
-* Provide a data-driven recommendation on whether to implement the change.
-* Practice implementing statistical hypothesis testing for A/B test analysis.
+## Project Summary
+This project analyzes the effectiveness of two landing page variants (control vs. treatment) in driving user conversions using data from Kaggle. We load session and purchase data, perform exploratory data analysis, check for statistical validity, visualize conversion rates, and run a two-proportion z-test to assess whether the new design (treatment group) yields a statistically significant uplift compared to the original (control group). The analysis includes data cleaning, hypothesis testing, and visualization, culminating in a recommendation based on the findings.
 
-## Data Source
-The data used for this analysis represents simulated user interaction data for an A/B test comparing two versions of a webpage. The dataset includes user IDs, timestamps, group assignment (Control/Treatment or A/B), and conversion status.
-*(OR: The data was obtained from [Dataset Name] on Kaggle: [Link to dataset])*
-*(Make sure to specify the actual source)*
+## Dataset
+* **Source:** [Kaggle AB-testing dataset](https://www.kaggle.com/datasets/amirmotefaker/ab-testing-dataset)
+* **Raw files Location:** `archive/` directory
+    * `control_group.csv`
+    * `test_group.csv`
+* **Description:** The dataset contains user session/purchase information for two groups exposed to different landing page versions. Key columns include `user_id`, `group`, `landing_page`, and `converted`.
+
+## Repository Structure
+```bash
+Basic-ab-testing-project/
+├── archive/
+│   ├── control_group.csv
+│   └── test_group.csv
+├── data/
+│   └── ab_test_cleaned.csv       # cleaned & merged output
+├── notebooks/
+│   └── A_B_Testing_Landing_Page_Conversion.ipynb
+├── tableau/
+│   └── landing_page_dashboard.twbx   # interactive funnel dashboard
+└── README.md
 
 ## Methodology
 1.  **Data Cleaning & Preparation:** Loaded the data, checked for missing values, ensured correct data types.
@@ -22,24 +43,25 @@ The data used for this analysis represents simulated user interaction data for a
     * Performed a [mention the specific statistical test, e.g., 'two-proportion z-test' or 'Chi-squared test'] to compare the conversion rates between Group A and Group B.
 4.  **Conclusion:** Interpreted the p-value and confidence interval based on a pre-defined significance level (e.g., $\alpha = 0.05$) to make a decision on statistical significance.
 
-## Results
-* The conversion rate for the Control group (A) was [X%].
-* The conversion rate for the Treatment group (B) was [Y%].
-* The statistical test resulted in a p-value of [your p-value].
-* Based on a significance level of 0.05, we [found/did not find] a statistically significant difference between the two groups. *(Elaborate slightly if needed, e.g., mention the confidence interval)*
-* **Recommendation:** [e.g., 'Implement the new version B as it showed a statistically significant improvement in conversion rate.' or 'Do not implement version B as there was no statistically significant difference detected.' or 'Further testing may be needed...']*
+## Key Findings
+* **Control conversion rate:** 12.30%  
+* **Treatment conversion rate:** 14.80%  
+* **Z‑statistic:** 2.20  
+* **P‑value:** 0.0283  
+* At α = 0.05, the increase in conversion for version B is **statistically significant**.  
+* **Recommendation:** Roll out version B, as it demonstrated a significant uplift.
 
 ## Technologies Used
 * Python
 * Pandas (for data manipulation)
 * NumPy (for numerical operations)
-* SciPy.stats / Statsmodels (for statistical testing) *(Specify which one you used)*
+* Statsmodels (for statistical testing)
 * Matplotlib / Seaborn (for visualization)
 * Jupyter Notebook (for analysis development)
 
 ## Setup and Usage
 
-### Clone the Repository
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/bobopapi0715/Basic-ab-testing-project.git
+git clone [https://github.com/bobopapi0715/Basic-ab-testing-project.git](https://github.com/bobopapi0715/Basic-ab-testing-project.git)
 cd Basic-ab-testing-project
